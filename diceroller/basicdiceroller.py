@@ -13,6 +13,7 @@ class die:
     """
     sides = 6
 
+    # comment
     def change_sides(self, new_side):
         self.sides = new_side
 
