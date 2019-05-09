@@ -15,7 +15,7 @@ def game():
 
         # Difficulty level choice loop
         while not correctchoice:
-            difficulty = raw_input("What difficulty level do you want to play? (E)asy, (M)edium or (H)ard ")
+            difficulty = input("What difficulty level do you want to play? (E)asy, (M)edium or (H)ard ")
             if difficulty == "E":
                 print ("Easy Difficulty\n")
                 ceillimit = 25
@@ -48,11 +48,14 @@ def game():
 
             # ask user for input, check it is an integer only
             try:
-                guess = input("Try %d: Enter your guess! " % turn)
+                guess = int(input("Try %d: Enter your guess! " % turn))
             except NameError:
                 print("That is not a whole number. Try again")
                 continue
             except SyntaxError:
+                print("That is not a whole number. Try again")
+                continue
+            except ValueError:
                 print("That is not a whole number. Try again")
                 continue
 
@@ -86,7 +89,7 @@ def game():
             print("Congratulations! the number was %d !\n You attempted this in %d tries!" % (num, turn))
 
         # prompt for new game
-        choice = raw_input("Do you want to play again? Y/N ")
+        choice = input("Do you want to play again? Y/N ")
         if choice != "Y":
             print("Thank you for the game!")
             cont = False
